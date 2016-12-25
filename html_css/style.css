@@ -1,0 +1,71 @@
+#header {
+  float: right;
+}
+
+#google_logo {
+  padding-top: 200px;
+  padding-left: 200px;
+  padding-bottom: 30px;
+  display: block;
+  margin: 0 auto;
+}
+
+#search_bar {
+  width: 550px;
+  height: 30px;
+  display: block;
+  margin: 0 auto;
+}
+
+.wrapper {
+  margin-top: 30px;
+  position: relative;
+  left: 600px;
+}
+
+.buttons {
+  padding: 7px 12px 7px 12px;
+  font-family: sans-serif;
+  color: black;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+}
+
+a {
+  text-decoration: none;
+  padding-right: 10px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#first_footer {
+  position: relative;
+  top: 320px;
+  left: 20px;
+}
+
+#second_footer {
+  float: right;
+  position: relative;
+  top: 300px;
+  right: 20px;
+}
+
+#google_apps_symbol {
+  margin-right: 10px;
+  margin-bottom: 0;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 3px;
+}
