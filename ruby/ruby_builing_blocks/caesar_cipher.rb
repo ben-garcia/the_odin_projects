@@ -12,5 +12,4 @@ def caesar_cipher(string, number)
 
 end
 
-
 puts caesar_cipher("What a string!", 5)
