@@ -1,0 +1,26 @@
+<% provide(:title, "All Events") %>
+<h1>All Events</h1>
+
+<ul>
+  <p><b>Upcoming Events</b></p>
+  <% @upcoming_events.each do |upcoming_event| %>
+    <li>
+      <%= link_to upcoming_event.description, event_path(upcoming_event) %>
+      Date: <%= upcoming_event.date %>
+      Creator: <%= link_to upcoming_event.creator.name, user_path(upcoming_event.creator) %>
+      Attendees: <%= upcoming_event.attendees.size %>
+    </li>
+  <% end %>
+</ul>
+
+<ul>
+  <p><b>Past Events</b></p>
+  <% @past_events.each do |past_event| %>
+  <li>
+    <%= link_to past_event.description, event_path(past_event) %>
+    Date: <%= past_event.date %>
+    Creator: <%= link_to past_event.creator.name, user_path(past_event.creator) %>
+    Attendees: <%= past_event.attendees.size %>
+  </li>
+  <% end %>
+</ul>

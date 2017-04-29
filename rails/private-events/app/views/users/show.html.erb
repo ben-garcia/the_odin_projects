@@ -1,0 +1,45 @@
+<% provide(:title, @user.name) %>
+<h2>Users Info</h2>
+
+<%= link_to "Home", root_url %> <br><br>
+
+<%= @user.name %> 's Page
+
+<p><b>Events You're Attending</b></p>
+
+<% if @user.attended_events.any? %>
+    <p>Upcoming Events</p>
+    <ol>
+      <% @upcoming_events.each do |u| %>
+        <%= u.description %> <%= u.date %>
+      <% end %>
+    </ol>
+
+    <ol>
+      <p>Past Events</p>
+      <ul>
+        <% @past_events.each do |p| %>
+          <%= p.description %> &nbsp<%= p.date %>
+        <% end %>
+      </ul>
+    </ol>
+<% else %>
+  <p>You don't have any events</p>
+<% end %>
+
+
+<br><br>
+<h2>Events Created</h2>
+
+<% if @user.events.any? %>
+    <ul>
+    <%= @user.events.each do |e| %>
+
+    <li><%= e.description %></li>
+    <% end %>
+    </ul>
+<% else %>
+  <p>No Events</p>
+<% end %>
+
+<%= link_to "Create new Event", new_event_path if signed_in?%>

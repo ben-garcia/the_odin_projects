@@ -1,0 +1,24 @@
+<br><br><%= link_to "Home", root_url %>
+
+<h1>Single Event</h1>
+
+<% if !@event.nil? %>
+  <%= @event.description %> &nbsp Date: <%= @event.date %><br>
+  <p>Created By: <%= link_to @event.creator.name, user_path %> </p>
+<% else %>
+  <p>No Event to Display</p>
+<% end %>
+
+<h1>Event Attendees</h1>
+
+<% if @event.attendees.any? %>
+  <ol>
+    <%= @event.attendees.each do |a| %>
+      <li><%= link_to a.name, user_path(a)%></li>
+    <% end %>
+  </ol>
+<% else %>
+  <p>This Event doesn't have any attendees!</p>
+<% end %>
+
+<%= link_to "attend event", '#' %>

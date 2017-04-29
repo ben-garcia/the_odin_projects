@@ -1,0 +1,7 @@
+<% if signed_in? %>
+  <p>You are Logged In as: <%= current_user.name %></p>
+  <%= link_to "Log Out", signout_path, method: :delete%>
+<% else %>
+  <p>You are not Logged In</p>
+  <%= link_to "Log In", signin_path %>
+<% end %>
