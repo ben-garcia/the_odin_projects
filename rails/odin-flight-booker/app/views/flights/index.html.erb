@@ -1,0 +1,69 @@
+<!-- form_tag used for simple forms. -->
+<!-- form_for used to create Model objects. -->
+
+<%= form_tag root_url, method: 'get' do %>
+
+  <table border="1">
+    <tr>
+      <th>From</th>
+      <th>To</th>
+      <th>Passengers</th>
+      <th>Date</th>
+    </tr>
+    <tr>
+      <td>
+        <%= select_tag(:from_flight, options_for_select(@airport_options, params[:from_flight])) %>
+      </td>
+      <td>
+        <%= select_tag(:to_flight, options_for_select(@airport_options, params[:to_flight])) %>
+      </td>
+      <td>
+        <%= select_tag(:passengers, options_for_select(@passenger_options, params[:passengers])) %>
+      </td>
+      <td>
+        <%= select_tag(:date, options_for_select(@start_options, params[:date])) %>
+      </td>
+    </tr>
+  </table><br>
+
+  <%= submit_tag("search") %>
+
+<% end %><br>
+
+<!-- results form-->
+
+<% if @searched_flight.count != 0 %>
+
+  <%= form_tag '/bookings/new', method: 'get' do %>
+
+    <table border="1">
+      <tr>
+        <th>Select</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Date</th>
+      </tr>
+      <% @searched_flight.each do |flight| %>
+          <tr>
+            <td>
+              <%= radio_button_tag :flight_id, flight.id %>
+            </td>
+            <td>
+              <%= flight.from_airport.code %>
+            </td>
+            <td>
+              <%= flight.to_airport.code %>
+            </td>
+            <td>
+              <%= flight.start %>
+            </td>
+          </tr>
+      <% end %>
+    </table><br>
+
+    <%= submit_tag("book flight") %>
+    <%= hidden_field_tag :passengers, params[:passengers] %>
+
+  <% end %>
+
+<% end %>

@@ -1,0 +1,36 @@
+<h1>Booking Summary</h1>
+
+<h3>Flight Information</h3>
+
+<table border="1">
+  <tr>
+    <th>From</th>
+    <th>To</th>
+    <th>Date</th>
+    <th>Duration</th>
+  </tr>
+  <tr>
+    <td><%= @booking.flight.from_airport.code %></td>
+    <td><%= @booking.flight.to_airport.code %></td>
+    <td><%= @booking.flight.start %></td>
+    <td><%= @booking.flight.duration %></td>
+  </tr>
+</table><br><br>
+
+<h3>Passengers Information</h3>
+
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+  <% @booking.passengers.each do |p| %>
+    <tr>
+      <td><%= p.name %></td>
+      <td><%= p.email %></td>
+    </tr>
+  <% end %>
+
+</table><br>
+
+<%= link_to "Home", root_path %>
