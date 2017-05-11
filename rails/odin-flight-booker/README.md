@@ -22,3 +22,15 @@ The purpose of this project was to get familiar with nested forms.
 Using the accepts_nested_attributes_for method and white listing the associated
 attributes in the strong parameters to have the ability to create from to
 create multiple model objects.
+
+PART 2
+Project: Sending Welcome Emails
+
+Setting up a mailer is a relatively straightforward task. It's very similar to building a new controller and views. Once you've made a couple, it should come naturally.
+
+Your Task
+You'll be dusting off your Flight Booker project (or one of the other projects that has users registering) and having it send out a "You have booked your ticket" email to all Passengers when they are created as part of the booking process.
+
+
+*** NOTES ****
+The purpose of the second part was to implement a mailer. The mailer is called after the booking has been created. Email is sent to all passengers booked on the flight. Used the --letter_opener-- gem to open the emails in the browser instead of sending then in the development environment.
