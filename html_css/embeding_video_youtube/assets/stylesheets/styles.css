@@ -1,0 +1,75 @@
+.container {
+  background-color: grey;
+}
+
+/* Header content */
+#nav-bar-logo {
+  padding-left: 15px;
+}
+
+#youtube-logo {
+  padding-right: 75px;
+}
+
+#input {
+  position: absolute;
+  top: 15px;
+  width: 575px;
+}
+
+#search-bar-logo {
+  position: absolute;
+  right: 660px;
+  height: 26px;
+}
+
+#upload-logo {
+  position: absolute;
+  right: 123px;
+  padding-top: 5px;
+}
+
+#sign-in-logo {
+  position: absolute;
+  right: 30px;
+}
+
+/* main-content */
+.main-content {
+  margin: 10px 110px 0 110px;
+}
+
+/* left-side */
+.left-side {
+  height: 1000px;
+  width: 858px;
+  float: left;
+}
+
+#embedded-video {
+  width:  854px;
+  height: 480px;
+}
+
+.video-info {
+  width: 854px;
+}
+
+#video-title {
+  padding-left: 20px;
+}
+
+.right-side {
+  height: 1000px;
+  width: 423px;
+  float: right;
+}
+
+.next-up {
+  width: 100px;
+}
+
+.footer {
+  position: absolute;
+  top: 1120px;
+}
