@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HTML Forms</title>
+    <link rel="stylesheet" href="assets/stylesheets/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="nav">
+        <a href="#"><img class="mint-logo" src="assets/images/mint_logo.png" alt="mint logo"></a>
+        <a id="sign-up" href="#">Sign up</a>
+        <a id="log-in" href="#">Log in</a>
+      </div>
+      <div class="main">
+        <div class="form">
+          <form action="/login" method="post">
+            <fieldset>
+              <p id="form-title">See all your finances in one<br> place <br><br></p>
+              <label>
+                Your Email <br><br>
+                <input class="input-form" type="text" name="your_name" placeholder="name@domain.com"><br><br>
+              </label>
+              <label>
+                Confirm Email <br><br>
+                <input class="input-form" type="text" name="confirm_email"><br><br>
+              </label>
+              <label>
+                Phone (recommended) <br><br>
+                <input class="input-form" type="text" name="phone"><br><br>
+              </label>
+              <label>
+                Password <br><br>
+                <input class="input-form" type="text" name="password"><br><br>
+              </label>
+              <label>
+                Confirm Password <br><br>
+                <input class="input-form" type="text" name="confirm_password"><br><br>
+              </label>
+              <label>
+                <input type="checkbox" name="remember_me">Remember me
+              </label><br><br>
+              <input type="submit" name="submit" value="Login"><br><br>
+              <p>By clicking Sign Up you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Statement</a></p>
+            </fieldset>
+          </form>
+        </div>
+        <div class="aside">
+          <p class="aside-title">Why you'll love it</p>
+          <ul>
+            <li>See all your accounts in one place</li>
+            <li>Find the best ways to grow your money</li>
+            <li>Stay <a href="#">safe and secure</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer">
+        <img class="footer" src="assets/images/footer.png" alt="picture">
+      </div>
+    </div>
+  </body>
+</html>

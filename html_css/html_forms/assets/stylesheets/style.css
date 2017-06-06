@@ -1,0 +1,65 @@
+.container {
+  margin-left: 350px;
+  margin-right: 370px;
+}
+
+.nav {
+  margin-top: 170px;
+  height: 56px;
+}
+
+.mint-logo {
+  height: 50px;
+  width: 100px;
+}
+
+#sign-up {
+  padding-left: 555px;
+  height: 100px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+#log-in {
+  padding-left: 28px;
+  text-decoration: none;
+  color: grey;
+}
+
+.main {
+  height: 800px;
+}
+
+.form {
+  height: 750px;
+  width: 525px;
+  float: left;
+  padding-left: 50px;
+  padding-top: 50px;
+}
+
+#form-title {
+  font-size: 200%;
+}
+
+.input-form {
+  width: 310px;
+  height: 27px;
+}
+
+.aside {
+  width: 213px;
+  height: 800px;
+  float: right;
+}
+
+.aside-title {
+  padding-left: 20px;
+  padding-top: 80px;
+  font-weight: bold;
+}
+
+.footer {
+  width: 700px;
+}
