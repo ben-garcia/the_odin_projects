@@ -1,0 +1,21 @@
+#grid {
+  background: red;
+  width: 900px;
+}
+
+.box {
+  border: 1px solid black;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+.player {
+  position: relative;
+  background-color: green;
+}
+
+#food {
+  position: relative;
+  background-color: blue;
+}
