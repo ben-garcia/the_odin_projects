@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Creating an Image Carousel/Slider</title>
+    <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Javascript Frameworks Carousel</h1>
+      <div class="slideshow">
+          <div id="prev"></div>
+        <div class="picture">
+          <ul id="slides">
+            <li><img id="angular" class="active" src="assets/angular.jpg" alt="angular"></li>
+            <li><img id="react" class="inactive" src="assets/react.png" alt="react"></li>
+            <li><img id="vue" class="inactive" src="assets/vue.jpg" alt="vue"></li>
+            <li><img id="node" class="inactive" src="assets/node.png" alt="node"></li>
+            <li><img id="meteor" class="inactive" src="assets/meteor.png" alt="meteor"></li>
+          </ul>
+        </div>
+        <div id="next"></div>
+      </div>
+      <div class="nav-buttons">
+      <ul>
+        <li id"first"></li>
+        <li id"second"></li>
+        <li id"third"></li>
+        <li id"four"></li>
+        <li id"five"></li>
+      </ul>
+      </div>
+    </div>
+    <script src="jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+    <script src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

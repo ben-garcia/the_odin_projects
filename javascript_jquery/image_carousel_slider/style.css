@@ -1,0 +1,149 @@
+.container {
+  width: 800px;
+  height: 620px;
+  margin: 0 auto;
+  border: 2px solid black;
+}
+
+h1 {
+  text-align: center;
+}
+
+.slideshow {
+  width: 800px;
+  height: 500px;
+}
+
+.prev-button {
+  display: inline-block;
+  float: left;
+  width: 50px;
+  height: inherit;
+}
+
+#prev {
+  width: 40px;
+  height: 40px;
+  border: 2px solid black;
+  border-radius: 100px;
+  position: absolute;
+  top: 600px;
+  left: 380px;
+}
+
+.picture {
+  display: inline-block;
+  width: inherit;
+  height: inherit;
+}
+
+.picture ul {
+  width: 800px;
+  height: 500px;
+  position: relative;
+  left: -40px;
+  top: -15px;
+  list-style-type: none;
+}
+
+#slides {
+  width: 800px;
+}
+
+#angular {
+  height: 500px;
+}
+
+#react {
+  position: relative;
+  height: 500px;
+}
+
+#vue {
+  position: relative;
+  height: 500px;
+}
+
+#node {
+  position: relative;
+  height: 500px;
+}
+
+#meteor {
+  position: relative;;
+  height: 500px;
+}
+
+.inactive {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+img {
+  width: 800px;
+  height: inherit;
+}
+
+.next-button {
+  display: inline-block;
+  float: right;
+  width: 50px;
+  height: inherit;
+}
+
+#next {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  border: 2px solid black;
+  position: relative;
+  top: 0;
+  left: 750px;
+}
+
+.nav-buttons {
+  clear: both;
+  width: inherit;
+  height: 50px;
+}
+
+.nav-buttons ul {
+  padding-left: 340px;
+}
+
+.nav-buttons ul li {
+  width: 25px;
+  height: 25px;
+  border: 2px solid black;
+  border-radius: 100px;
+  /* Remove the bullet points from ul list */
+  list-style-type: none;
+  display: inline-block;
+}
+
+#first {
+  
+}
+
+#second {
+
+}
+
+#third {
+
+}
+
+#four {
+
+}
+
+#five {
+
+}
+
+.activated {
+  bacground-color: #ccc;
+}
