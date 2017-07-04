@@ -1,0 +1,75 @@
+h1 {
+  text-align: center;
+  font-family: monospace;
+}
+span {
+  font-size: 20px;
+  padding: 0 200px;
+}
+
+fieldset {
+  margin: 100px 100px 0 100px;
+  background-color: #AEAA9D;
+  border-radius: 100px;
+}
+
+.input {
+  padding: 5px;
+  width: 500px;
+  border-radius: 10px;
+}
+
+input[type="submit"] {
+  border-radius: 15px;
+  background-color: #ccc;
+  font-size: 20px;
+}
+
+#button {
+  margin-top: 10px;
+  padding-left: 250px;
+}
+
+input[name="country"] {
+  position: relative;
+  right: 20px;
+}
+
+input[name="emailConfirmation"] {
+  position: relative;
+  right: 110px;
+}
+
+input[name="passwordConfirmation"] {
+  position: relative;
+  right: 145px;
+}
+
+#email-confirmation {
+  position: relative;
+  right: 110px;
+}
+
+.zip-password {
+  position: relative;
+  right: 30px;
+}
+
+.row {
+  margin: 50px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid grey;
+}
+
+.invalid {
+  border: 3px solid red;
+}
+
+.valid {
+  border: 3px solid green;
+}
+
+#mail-confimation {
+  position: relative;
+  right: 20px;
+}
