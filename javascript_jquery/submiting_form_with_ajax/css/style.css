@@ -1,0 +1,57 @@
+.wrapper {
+  background-color: #ccc;
+  margin: 0 150px;
+}
+
+legend {
+  font-size: 18px;
+}
+label {
+  font-family: monospace;
+  font-size: 18px;
+}
+
+input[type="text"] {
+  width: 500px;
+  height: 25px;
+  margin-right: 20px;
+  font-size: 25px;
+}
+
+input[type="submit"] {
+  font-size: 20px;
+}
+
+.invalid {
+  border: 3px solid red;
+  border-radius: 10px;
+}
+
+/* RESULTS TABLE */
+#totalResults {
+  text-align: center;
+  font-family: monospace;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table thead tr th {
+  border-bottom: 1px solid black;
+  padding: 0 100px;
+}
+
+table tbody {
+  padding: 0 200px;
+  text-align: center;
+}
+
+tbody tr {
+  border-bottom: 1px solid black;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
