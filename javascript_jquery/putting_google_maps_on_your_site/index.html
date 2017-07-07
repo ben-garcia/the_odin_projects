@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Infinite Scroll and Submitting a Form with AJAX</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+    <div class="wrapper">
+
+      <form id="form">
+        <fieldset>
+          <legend>Map Locator</legend>
+          <label for="latitude">Latitude:</label>
+          <input type="text" name="latitude" id='lat'>
+          <label for="longitude">Longitude:</label>
+          <input type="text" name="longitude" id='long'>
+          <label for="message">Message:</label>
+          <textarea name="message" cols="30" rows="5" id='message'></textarea>
+          <input type="submit" value="Search">
+        </fieldset>
+      </form>
+
+      <div id="options">
+        <input id="show-markers" type="button" value="Show Markers">
+        <input id="hide-markers" type="button" value="Hide Markers">
+      </div>
+
+      <div id="map"></div>
+
+    </div>
+
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSLI6B0V1s19f7Mgd9yyAzH49pCzqC-xo&v=3&callback=initMap"
+    async defer></script>
+  </body>
+</html>

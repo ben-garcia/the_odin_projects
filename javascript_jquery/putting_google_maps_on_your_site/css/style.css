@@ -1,0 +1,37 @@
+.wrapper {
+  margin: 0 100px;
+}
+
+form {
+  margin: 0 150px;
+}
+
+input[type="text"] {
+  margin-right: 10px;
+}
+
+#options {
+  margin: 20px 0 20px 500px;
+
+}
+
+#show-markers {
+  margin-right: 50px;
+  background-color: #428bca;
+  border-radius: 10px;
+}
+
+#hide-markers {
+  background-color: #428bca;
+  border-radius: 10px;
+}
+
+.invalid {
+  border-radius: 10px;
+}
+
+#map {
+  border: 2px solid black;
+  width: inherit;
+  height: 500px;
+}
