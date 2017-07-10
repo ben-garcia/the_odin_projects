@@ -1,0 +1,62 @@
+// Place all the styles related to the Puzzles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$grey-color: #CCC;
+
+#index-title {
+  text-align: center;
+  font-size: 30px;
+  background-color: $grey-color;
+  border-radius: 10px;
+  margin: 0 400px;
+}
+
+#container {
+  border-radius: 10px;
+  background-color: $grey-color;
+  margin: 0 400px;
+
+  #puzzle-title {
+    text-align: center;
+    font-size: 25px;
+    font-family: monospace;
+
+    span {
+      font-size: 20px;
+    }
+  }
+
+  #picture-buttons {
+    #puzzle-image {
+      border: 2px solid red;
+      border-radius: 10px;
+      width: 150px;
+      height: 150px;
+      margin: 25px;
+
+      img {
+        width: inherit;
+        height: inherit;
+        display: inline-block;
+      }
+    }
+
+    #buttons {
+      display: inline-block;
+      position: relative;
+      bottom: 70px;
+      left: 150px;
+      width: 200px;
+      height: 50px;
+
+      button {
+        display: inline-block;
+        float: left;
+        width: 50%;
+        height: 100%;
+        border-radius: 10px;
+      }
+    }
+  }
+
+}
