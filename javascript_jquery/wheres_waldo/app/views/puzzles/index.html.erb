@@ -12,11 +12,11 @@
 
     <div id="picture-buttons">
 
-      <img id="puzzle-image" src=<%= puzzle.url %> alt="<%= puzzle.difficulty %> Puzzle">
+      <img id="puzzle-image" src="<%= puzzle.url %>" alt="<%= puzzle.difficulty %> Puzzle">
 
       <div id="buttons">
-        <button type="button">Play</button>
-        <button type="button">Scores</button>
+        <button id="<%= puzzle.title %>" type="button">Play</button>
+        <button id="<%= puzzle.title %>" type="button">Scores</button>
       </div>
 
     </div>

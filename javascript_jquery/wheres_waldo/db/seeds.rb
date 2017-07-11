@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Puzzle.delete_all
+Character.delete_all
 
 Puzzle.create([{
     url: 'https://s-media-cache-ak0.pinimg.com/originals/86/b9/b1/86b9b1e83140b935031a7c7b0ebf0170.jpg',
@@ -23,3 +24,13 @@ Puzzle.create([{
     difficulty: "Hard",
     title: "The Gobbling Gluttons"
   }])
+
+  Character.create([{
+      name: "Waldo"
+    },
+    {
+      name: "Wilma"
+    },
+    {
+      name: "Wizard"
+    }])
