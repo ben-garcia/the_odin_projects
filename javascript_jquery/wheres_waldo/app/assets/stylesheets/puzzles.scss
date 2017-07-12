@@ -70,9 +70,10 @@ $grey-color: #CCC;
 
     /* AFTER THE USER CLICKS */
     #user-prompt {
+      border: 2px solid black;
       border-radius: 10px;
       width: 180px;
-      height: 130px;
+      height: 160px;
       position: absolute;
 
       #highlighted {
@@ -133,4 +134,48 @@ $grey-color: #CCC;
       padding: 0;
     }
   }
+}
+
+#correct {
+  text-align: center;
+  font-size: 60px;
+  font-weight: 600;
+  color: green;
+  position: fixed;
+  padding-left: 600px;
+  margin-top: 10px;
+}
+
+#try-again {
+  text-align: center;
+  font-size: 60px;
+  font-weight: bold;
+  color: red;
+  position: fixed;
+  padding-left: 600px;
+  margin-top: 10px;
+}
+
+#permanent-box-waldo {
+  border: 5px solid green;
+  border-radius: 10px;
+  width: 40px;
+  height: 50px;
+  position: absolute;
+}
+
+#permanent-box-wilma {
+  border: 5px solid green;
+  border-radius: 10px;
+  width: 40px;
+  height: 50px;
+  position: absolute;
+}
+
+#permanent-box-wizard {
+  border: 5px solid green;
+  border-radius: 10px;
+  width: 40px;
+  height: 50px;
+  position: absolute;
 }

@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170710164052) do
+ActiveRecord::Schema.define(version: 20170710153236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
-    t.decimal "x_position"
-    t.decimal "y_position"
+    t.integer "x_position"
+    t.integer "y_position"
     t.integer "puzzle_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -26,10 +26,10 @@ ActiveRecord::Schema.define(version: 20170710164052) do
 
   create_table "puzzles", force: :cascade do |t|
     t.string "url"
+    t.string "title"
+    t.string "difficulty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "difficulty"
-    t.string "title"
   end
 
   create_table "scores", force: :cascade do |t|
