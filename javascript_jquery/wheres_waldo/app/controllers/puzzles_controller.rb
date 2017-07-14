@@ -5,6 +5,6 @@ class PuzzlesController < ApplicationController
 
   def show
     @puzzle = Puzzle.find(params[:id])
-    @scores = @puzzle.scores.order(number: :desc).limit(20)
+    @scores = @puzzle.scores.order(number: :asc).limit(10)
   end
 end

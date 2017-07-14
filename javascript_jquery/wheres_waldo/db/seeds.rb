@@ -8,6 +8,7 @@
 
 Puzzle.delete_all
 Character.delete_all
+Score.delete_all
 
 # Create the 3 puzzles and set their attributes.
 Puzzle.create([{
@@ -26,6 +27,7 @@ Puzzle.create([{
     title: "The Gobbling Gluttons"
   }])
 
+# Create the puzzle characters thorugh their 1:many association.
 Puzzle.first.characters.create(name: "Waldo", x_position: 863, y_position: 700)
 Puzzle.first.characters.create(name: "Wilma", x_position: 874, y_position: 571)
 Puzzle.first.characters.create(name: "Wizard", x_position: 1287, y_position: 728)
@@ -37,3 +39,18 @@ Puzzle.find_by(difficulty: "Medium").characters.create(name: "Wizard", x_positio
 Puzzle.last.characters.create(name: "Waldo", x_position: 753, y_position: 276)
 Puzzle.last.characters.create(name: "Wilma", x_position: 517, y_position: 257)
 Puzzle.last.characters.create(name: "Wizard", x_position: 1116, y_position: 650)
+
+names = ["John", "Jane", "Ashley", "Logan", "Kelly"]
+
+10.times do |t|
+  string_number = rand(5..10).to_s + "." + (rand(00..59)).to_s + "." + rand(0.2..99.0).round(2).round.to_s
+
+  string_array = string_number.split(".")
+  number = (string_array[0] + string_array[1] + string_array[2]).to_i
+
+  player_name = names[rand(0..4)] + (rand(1..10000)).to_s
+
+  Puzzle.first.scores.create(number: number, player_name: player_name)
+  Puzzle.find_by(difficulty: "Medium").scores.create(number: number, player_name: player_name)
+  Puzzle.last.scores.create(number: number, player_name: player_name)
+end

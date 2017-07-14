@@ -56,6 +56,10 @@ $grey-color: #CCC;
         width: 50%;
         height: 100%;
         border-radius: 10px;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }
@@ -266,26 +270,21 @@ $grey-color: #CCC;
   font-size: 20px;
 }
 
-/* SCORES PAGE  */
-#scores-container {
-  border-radius: 10px;
-  background-color: $grey-color;
-  margin: 0 600px;
+#congrats-form {
+  position: relative;
+  left: 50px;
+  top: 30px;
 
-  h1 {
-    font-size: 30px;
-    text-align: center;
-    font-family: monospace;
+  fieldset {
+    border: none;
   }
 
-  table {
-    margin: 0 50px;
+  input[type=text] {
+    margin-left: 20px;
+  }
 
-    th, td {
-      border: 1px solid black;
-      font-size: 20px;
-      padding: 5px 10px;
-      text-align: center;
-    }
+  input[type=submit] {
+    margin-left: 20px;
+    border-radius: 10px;
   }
 }

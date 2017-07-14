@@ -32,12 +32,15 @@ $(document).ready(function() {
         }
       } else {
         if ($(this).attr('id') == 'The Town') {
+          console.log('high scores');
           window.location.replace('puzzles/' + 1);
         }
         else if ($(this).attr('id') == 'FVN and Games in Ancient Rome') {
+          console.log('high scores');
           window.location.replace('puzzles/' + 2);
         }
         else if ($(this).attr('id') == 'The Gobbling Gluttons') {
+          console.log('high scores');
           window.location.replace('puzzles/' + 3);
         }
       }
@@ -166,7 +169,6 @@ $(document).ready(function() {
         });
         userClickedPosX = event.pageX;
         userClickedPosY = event.pageY;
-        console.log('X: ' + userClickedPosX + ' ' + 'Y: ' + userClickedPosY);
         fetchCharacters(puzzleID);
       }
     });
@@ -258,10 +260,6 @@ $(document).ready(function() {
       posX = characters[0].posX;
       posY = characters[0].posY;
 
-      console.log('clicked Waldo');
-      console.log('Highlighted Box ----------> X: ' + userClickedPosX  + ' Y: ' + userClickedPosY);
-      console.log('name: ' + name + ' x: ' + posX + ' y: ' + posY);
-
       if ((userClickedPosX + 25) > posX && (userClickedPosX - 25) < posX && (userClickedPosY + 25) > posY && (userClickedPosY - 25) < posY) {
         $('#image-container').prepend('<h1 id=\'correct\'>Correct</h1>');
         setTimeout(function() {
@@ -288,8 +286,6 @@ $(document).ready(function() {
       }
       if (buttonChoices == 0) {
         clearInterval(interval);
-        console.log(minutes + ' mins' + seconds + ' secs' + tenths + ' tenths');
-
         showForm();
       }
 
@@ -299,10 +295,6 @@ $(document).ready(function() {
       name = characters[1].name;
       posX = characters[1].posX;
       posY = characters[1].posY;
-
-      console.log('clicked Wilma');
-      console.log('Highlighted Box ----------> X: ' + userClickedPosX  + ' Y: ' + userClickedPosY);
-      console.log('name: ' + name + ' x: ' + posX + ' y: ' + posY);
 
       if ((userClickedPosX + 25) > posX && (userClickedPosX - 25) < posX && (userClickedPosY + 25) > posY && (userClickedPosY - 25) < posY) {
         $('#image-container').prepend('<h1 id=\'correct\'>Correct</h1>');
@@ -330,8 +322,6 @@ $(document).ready(function() {
       }
       if (buttonChoices == 0) {
         clearInterval(interval);
-        console.log(minutes + ' mins' + seconds + ' secs' + tenths + ' tenths');
-
         showForm();
       }
 
@@ -341,10 +331,6 @@ $(document).ready(function() {
       name = characters[2].name;
       posX = characters[2].posX;
       posY = characters[2].posY;
-
-      console.log('clicked Wizard');
-      console.log('Highlighted Box ----------> X: ' + userClickedPosX  + ' Y: ' + userClickedPosY);
-      console.log('name: ' + name + ' x: ' + posX + ' y: ' + posY);
 
       if ((userClickedPosX + 25) > posX && (userClickedPosX - 25) < posX && (userClickedPosY + 25) > posY && (userClickedPosY - 25) < posY) {
         $('#image-container').prepend('<h1 id=\'correct\'>Correct</h1>');
@@ -372,8 +358,6 @@ $(document).ready(function() {
       }
       if (buttonChoices == 0) {
         clearInterval(interval);
-        console.log(minutes + ' mins' + seconds + ' secs' + tenths + ' tenths');
-
         showForm();
       }
     });
@@ -381,7 +365,7 @@ $(document).ready(function() {
   }
 
   function showForm() {
-    var formHTML = '<div id=\'dialog-form\'><form input=\'/scores/create\' method\'post\'><fieldset><input type=\'text\' name=\'name\' value=\'Enter Your Name\'></input><input type=\'submit\'></input></fieldset></form><div>';
+    var formHTML = '<div id=\'dialog-form\'><form id=\'congrats-form\'><fieldset><input type=\'text\' name=\'name\' placeholder=\'Enter Your Name\'></input><input type=\'submit\'></input></fieldset></form><div>';
     $('#puzzle-page').prepend(formHTML);
     dialog = $('#dialog-form').dialog({
       title: 'Congratulations!',
@@ -393,7 +377,7 @@ $(document).ready(function() {
       resizeable: false,
       draggable: false,
       open: function() {
-        $('#dialog-form').prepend('<p id=\'dialog-user-info\'>You Have Completed The Puzzle<br>Your Time: <strong>' + minutes + ' mins ' + seconds + '.' + tenths + ' secs</strong><br>' + '</p>');
+        $('#dialog-form').prepend('<p id=\'dialog-user-info\'>You Have Completed The Puzzle<br>Your Time: <strong>' + minutes + ' mins ' + seconds + '.' + tenths + ' secs</strong><br><br> Enter Your Name or Click Submit to remain Anonymous<br><br> Thank You For Playing!!!' + '</p>');
       }
     });
 
@@ -401,22 +385,27 @@ $(document).ready(function() {
       // Stop the form from submitting normally.
       event.preventDefault();
 
-      console.log('form submitted');
       // Send query parameters to the Rails ScoresController create action.
-      var userTime = minutes + 'm ' + seconds + '.' + tenths + 's';
-      var userName;
-      if ($('input[type=text]').val() == 'Enter Your Name' || $('input[type=text]').val().length == 0) {
-        userName = 'NoName' + Math.floor(Math.random() * 1000000);
+      var userTime;
+      if (minutes == 0) {
+        userTime = parseInt(seconds.toString() + tenths.toString());
       }
       else {
+        userTime = parseInt(minutes.toString() + seconds.toString() + tenths.toString());
+      }
+
+      var userName;
+      var userInput = $('input[type=text]').val();
+
+      if (/\S/.test(userInput)) {
         userName = $('input[type=text]').val();
       }
-      console.log('TIME: ' + userTime);
-      console.log('PuzzleID: ' + puzzleidNumber);
+      else {
+        userName = 'Anonymous' + Math.floor(Math.random() * 10000);
+      }
+
       var url = '/ScoreCreate';
       var dataToSend = 'player_name=' + userName + '&number=' + userTime + '&puzzle_id=' + puzzleidNumber
-      console.log('RAILS URL: ' + url);
-      console.log('DataToSend: ' + dataToSend);
 
       $.ajax({
         url: url,
@@ -433,16 +422,5 @@ $(document).ready(function() {
     dialog.dialog('open');
 
   }
-
-
-
-
-
-
-
-
-
-
-
 
 });
