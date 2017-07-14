@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20170710153236) do
   end
 
   create_table "scores", force: :cascade do |t|
-    t.decimal "number"
+    t.string "number"
     t.string "player_name"
     t.integer "puzzle_id"
     t.datetime "created_at", null: false

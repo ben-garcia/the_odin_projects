@@ -1,5 +1,9 @@
 var userClickedPosX, userClickedPosY;
 var buttonChoices = ['Waldo', 'Wilma', 'Wizard'];
+var interval;
+var minutes = 0, seconds = 0, tenths = 0;
+var dialog, form;
+var puzzleIdNumber;
 
 $(document).ready(function() {
 
@@ -10,24 +14,31 @@ $(document).ready(function() {
         var src = $($($(this).parentsUntil('picture-buttons').get(1)).find('img')[0]).attr('src');
         if ($(this).attr('id') == 'The Town') {
           var puzzleID = $(this).attr('id');
+          puzzleidNumber = 1;
           loadPuzzle(src);
           userInput(puzzleID);
-        } else if ($(this).attr('id') == 'FVN and Games in Ancient Rome') {
+        }
+        else if ($(this).attr('id') == 'FVN and Games in Ancient Rome') {
           var puzzleID = $(this).attr('id');
+          puzzleidNumber = 2;
           loadPuzzle(src);
           userInput(puzzleID);
-        } else if ($(this).attr('id') == 'The Gobbling Gluttons') {
+        }
+        else if ($(this).attr('id') == 'The Gobbling Gluttons') {
           var puzzleID = $(this).attr('id');
+          puzzleidNumber = 3;
           loadPuzzle(src);
           userInput(puzzleID);
         }
       } else {
         if ($(this).attr('id') == 'The Town') {
-          console.log('view SCORES for the town');
-        } else if ($(this).attr('id') == 'FVN and Games in Ancient Rome') {
-          console.log('view SCORES for rvn and games in acient rome');
-        } else if ($(this).attr('id') == 'The Gobbling Gluttons') {
-          console.log('view SCORES for the gobbling glutons');
+          window.location.replace('puzzles/' + 1);
+        }
+        else if ($(this).attr('id') == 'FVN and Games in Ancient Rome') {
+          window.location.replace('puzzles/' + 2);
+        }
+        else if ($(this).attr('id') == 'The Gobbling Gluttons') {
+          window.location.replace('puzzles/' + 3);
         }
       }
     });
@@ -57,6 +68,60 @@ $(document).ready(function() {
     });
     $('div#puzzle-page').append(puzzleStats);
     $('div#puzzle-content').append('<h1>Find</h1>');
+
+    // Load the characters to find in the puzzle-content section.
+    $('div#puzzle-content').append('<div id=\'find-waldo\'><h3>Waldo</h3><img src=\'https://vignette3.wikia.nocookie.net/waldo/images/9/9d/Character.Waldo.jpg/revision/latest?cb=20071001045624\'></div>');
+    $('div#puzzle-content').append('<div id=\'find-wilma\'><h3>Wilma</h3><img src=\'https://vignette1.wikia.nocookie.net/waldo/images/3/3e/Character.Wenda.jpg/revision/latest?cb=20071001044014\'></div>');
+    $('div#puzzle-content').append('<div id=\'find-wizard\'><h3>Wizard</h3><img src=\'https://static.giantbomb.com/uploads/scale_small/4/46311/1341868-wizard.gif\'></div>');
+
+    // Set up the timer.
+    $('div#puzzle-content').append('<div id=\'timer\'><h3>Timer</h3><p><span id=\'minutes\'>00</span>:<span id=\'seconds\'>00</span>:<span id=\'tenths\'>00</span></p></div>');
+
+    $('div#puzzle-content').append('<button id=\'main-menu\' type=\'button\'>Main Menu</button>');
+    $('button#main-menu').click(function() {
+      document.location.href = '/';
+    })
+
+    // Set the interval to increment the timer.
+    var mins = document.getElementById('minutes');
+    var secs = document.getElementById('seconds');
+    var tens = document.getElementById('tenths');
+
+    clearInterval(interval);
+    interval = setInterval(function startTimer() {
+      tenths++;
+
+      if (tenths < 9) {
+        tens.innerHTML = '0' + tenths;
+      }
+
+      if (tenths > 9) {
+        tens.innerHTML = tenths;
+      }
+
+      if (tenths > 99) {
+        seconds++;
+        secs.innerHTML = '0' + seconds;
+        tenths = 0;
+        tens.innerHTML = '0' + 0;
+      }
+
+      if (seconds < 9) {
+        secs.innerHTML = '0' + seconds;
+      }
+
+      if (seconds > 9) {
+        secs.innerHTML = seconds;
+      }
+
+      if (seconds > 59) {
+        minutes++;
+        mins.innerHTML = '0' + minutes;
+        seconds = 0;
+        secs.innerHTML = '0' + seconds;
+      }
+
+    }, 10);
   }
 
   function userInput(puzzleID) {
@@ -92,8 +157,6 @@ $(document).ready(function() {
         }
         else {
           // TODO what happens when the user has found all the characters.
-          $('body').empty();
-          $('body').append('<h1>YOU ARE VICTORIOUS</h1>');
         }
 
         $('div#character-options').fadeIn('slow', 5000);
@@ -205,6 +268,8 @@ $(document).ready(function() {
           $('#correct').remove();
         }, 3000);
         $('#waldo').remove();
+        $('#find-waldo').remove();
+        $('#user-prompt').remove();
         // remove the 'Waldo' element for the buttonChoices array.
         // find the index to 'Waldo' to remove it.
         var i = buttonChoices.indexOf('Waldo');
@@ -220,6 +285,12 @@ $(document).ready(function() {
         setTimeout(function() {
           $('#try-again').remove();
         }, 3000);
+      }
+      if (buttonChoices == 0) {
+        clearInterval(interval);
+        console.log(minutes + ' mins' + seconds + ' secs' + tenths + ' tenths');
+
+        showForm();
       }
 
     });
@@ -239,8 +310,10 @@ $(document).ready(function() {
           $('#correct').remove();
         }, 3000);
         $('#wilma').remove();
-        // remove the 'Waldo' element for the buttonChoices array.
-        // find the index to 'Waldo' to remove it.
+        $('#find-wilma').remove();
+        $('#user-prompt').remove();
+        // remove the 'Wilma' element for the buttonChoices array.
+        // find the index to 'Wilma' to remove it.
         var i = buttonChoices.indexOf('Wilma');
         buttonChoices.splice(i, 1);
         $('div#image-container').append('<div id=\'permanent-box-wilma\'></div>');
@@ -254,6 +327,12 @@ $(document).ready(function() {
         setTimeout(function() {
           $('#try-again').remove();
         }, 3000);
+      }
+      if (buttonChoices == 0) {
+        clearInterval(interval);
+        console.log(minutes + ' mins' + seconds + ' secs' + tenths + ' tenths');
+
+        showForm();
       }
 
     });
@@ -273,8 +352,10 @@ $(document).ready(function() {
           $('#correct').remove();
         }, 3000);
         $('#wizard').remove();
-        // remove the 'Waldo' element for the buttonChoices array.
-        // find the index to 'Waldo' to remove it.
+        $('#find-wizard').remove();
+        $('#user-prompt').remove();
+        // remove the 'Wizard' element for the buttonChoices array.
+        // find the index to 'Wizard' to remove it.
         var i = buttonChoices.indexOf('Wizard');
         buttonChoices.splice(i, 1);
         $('div#image-container').append('<div id=\'permanent-box-wizard\'></div>');
@@ -289,9 +370,79 @@ $(document).ready(function() {
           $('#try-again').remove();
         }, 3000);
       }
+      if (buttonChoices == 0) {
+        clearInterval(interval);
+        console.log(minutes + ' mins' + seconds + ' secs' + tenths + ' tenths');
 
+        showForm();
+      }
     });
 
   }
+
+  function showForm() {
+    var formHTML = '<div id=\'dialog-form\'><form input=\'/scores/create\' method\'post\'><fieldset><input type=\'text\' name=\'name\' value=\'Enter Your Name\'></input><input type=\'submit\'></input></fieldset></form><div>';
+    $('#puzzle-page').prepend(formHTML);
+    dialog = $('#dialog-form').dialog({
+      title: 'Congratulations!',
+      dialogClass: 'no-class',
+      autoOpen: false,
+      height: 400,
+      width: 500,
+      model: true,
+      resizeable: false,
+      draggable: false,
+      open: function() {
+        $('#dialog-form').prepend('<p id=\'dialog-user-info\'>You Have Completed The Puzzle<br>Your Time: <strong>' + minutes + ' mins ' + seconds + '.' + tenths + ' secs</strong><br>' + '</p>');
+      }
+    });
+
+    form = dialog.find('form').on('submit', function(event) {
+      // Stop the form from submitting normally.
+      event.preventDefault();
+
+      console.log('form submitted');
+      // Send query parameters to the Rails ScoresController create action.
+      var userTime = minutes + 'm ' + seconds + '.' + tenths + 's';
+      var userName;
+      if ($('input[type=text]').val() == 'Enter Your Name' || $('input[type=text]').val().length == 0) {
+        userName = 'NoName' + Math.floor(Math.random() * 1000000);
+      }
+      else {
+        userName = $('input[type=text]').val();
+      }
+      console.log('TIME: ' + userTime);
+      console.log('PuzzleID: ' + puzzleidNumber);
+      var url = '/ScoreCreate';
+      var dataToSend = 'player_name=' + userName + '&number=' + userTime + '&puzzle_id=' + puzzleidNumber
+      console.log('RAILS URL: ' + url);
+      console.log('DataToSend: ' + dataToSend);
+
+      $.ajax({
+        url: url,
+        type: 'post',
+        data: dataToSend,
+        success: function() {
+          // redirect to the root page.
+          window.location.replace('/');
+        }
+      });
+
+    });
+
+    dialog.dialog('open');
+
+  }
+
+
+
+
+
+
+
+
+
+
+
 
 });

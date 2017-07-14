@@ -1,0 +1,32 @@
+<section id="index-title">
+  <h1><%= @puzzle.title %></h1>
+</section>
+
+
+<div id="scores-container">  
+
+  <h1>High Scores</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <% @scores.each do |score| %>
+        <tr>
+          <td><%= score.player_name %></td>
+          <td><%= score.number %></td>
+        </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+
+
+
+
+</div>
