@@ -1,2 +1,1 @@
-This is the sample application for the Ruby on Rails Tutorial by Michael Hartl
-https://www.railstutorial.org/book/
+These are the projects I have completed going through the [The Odin Project Curriculum](https://www.theodinproject.com)
